@@ -1,0 +1,8 @@
+{
+  "name": "gag",
+  "app_id": "93c3c04f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
