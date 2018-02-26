@@ -1,14 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
-      Ionic Blank
+      8gag
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngFor="let post of _cap.imagenes">
+    <img [src]="post.img">
+
+    <ion-card-content>
+      <ion-card-title>
+        {{post.titulo}}
+      </ion-card-title>
+
+    </ion-card-content>
+
+    <!-- <ion-item>
+      <ion-icon name="logo-twitter" item-start></ion-icon>
+      Followers
+      <ion-badge item-end>260k</ion-badge>
+      <button ion-button clear small icon-left>
+        <ion-icon name="share-alt"></ion-icon> Compartir
+      </button>
+    </ion-item> -->
+
+    <ion-row>
+
+      <ion-col text-left>
+        <button ion-button clear icon-left (click)="compartir(post.img)">
+          <ion-icon name="share-alt"></ion-icon> Compartir
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab color="danger" (click)="mostrar_modal()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="moreImg">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+
 </ion-content>
